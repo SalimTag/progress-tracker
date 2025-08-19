@@ -1,0 +1,25 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="256" cy="256" r="256" fill="#0ea5e9"/>
+  
+  <!-- Progress Chart Icon -->
+  <g transform="translate(126, 126)">
+    <!-- Chart Base -->
+    <rect x="20" y="20" width="220" height="220" rx="16" fill="white" fill-opacity="0.1"/>
+    
+    <!-- Progress Bars -->
+    <rect x="40" y="180" width="30" height="40" rx="4" fill="white"/>
+    <rect x="85" y="140" width="30" height="80" rx="4" fill="white"/>
+    <rect x="130" y="100" width="30" height="120" rx="4" fill="white"/>
+    <rect x="175" y="120" width="30" height="100" rx="4" fill="white"/>
+    
+    <!-- Checkmark -->
+    <circle cx="200" cy="80" r="20" fill="#10b981"/>
+    <path d="M192 80l6 6 12-12" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+  
+  <!-- App Title -->
+  <text x="256" y="400" text-anchor="middle" fill="white" font-family="system-ui" font-size="32" font-weight="600">
+    Progress
+  </text>
+</svg>
