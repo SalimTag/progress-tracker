@@ -1,19 +1,18 @@
 @import "tailwindcss";
 
-/* Design Tokens & CSS Variables for shadcn/ui */
+/* Tailwind v4 CSS Variables */
 @layer base {
   :root {
-    /* Color scheme */
-    color-scheme: light dark;
-
-    /* shadcn/ui CSS variables */
+  /* Color scheme */
+  color-scheme: light dark;
+  /* Light mode colors */
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: 191 91% 36.5%;
+    --primary: 221.2 83.2% 53.3%;
     --primary-foreground: 210 40% 98%;
     --secondary: 210 40% 96%;
     --secondary-foreground: 222.2 84% 4.9%;
@@ -25,8 +24,13 @@
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 191 91% 36.5%;
-    --radius: 0.75rem;
+  --ring: 221.2 83.2% 53.3%;
+  --radius: 0.5rem;
+  --chart-1: 12 76% 61%;
+  --chart-2: 173 58% 39%;
+  --chart-3: 197 37% 24%;
+  --chart-4: 43 74% 66%;
+  --chart-5: 27 87% 67%;
 
     /* Brand colors (cyan-based for progress tracking) */
     --brand-50: 236 254 255;
@@ -42,13 +46,14 @@
   }
 
   .dark {
+    /* Dark mode colors */
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-    --primary: 191 91% 36.5%;
+    --primary: 210 40% 98%;
     --primary-foreground: 222.2 84% 4.9%;
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
@@ -60,12 +65,17 @@
     --destructive-foreground: 210 40% 98%;
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 191 91% 36.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
   }
-}
 
-@layer base {
+  /* Apply base styles */
   * {
+    border-color: hsl(var(--border));
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -90,13 +100,15 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
     background-image: radial-gradient(
       1000px 300px at 0 -100px,
       hsl(var(--brand-500) / 0.08),
       transparent
     );
     padding-bottom: env(safe-area-inset-bottom);
+    overscroll-behavior-y: contain; /* Prevent pull-to-refresh */
   }
 }
 
@@ -164,12 +176,6 @@
   padding-bottom: calc(4rem + env(safe-area-inset-bottom, 0px));
 }
 
-/* Haptic feedback classes */
-.haptic-light {
-  user-select: none;
-  -webkit-tap-highlight-color: transparent;
-}
-
 /* Better mobile touch targets */
 .touch-target {
   position: relative;
@@ -204,12 +210,9 @@ button:focus {
 
 /* PWA specific enhancements */
 @media (display-mode: standalone) {
-  /* Hide the browser UI in standalone mode */
   body {
     user-select: none; /* Prevent text selection in app mode */
   }
-
-  /* Allow text selection in content areas */
   main,
   article,
   .content {
@@ -217,27 +220,64 @@ button:focus {
   }
 }
 
-/* Pull-to-refresh prevention for PWA */
-body {
-  overscroll-behavior-y: contain;
-}
-
 /* Component layer utilities */
 @layer components {
   .container-app {
-    @apply max-w-screen-sm mx-auto px-4;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 1rem;
   }
 
   .btn {
-    @apply inline-flex items-center justify-center rounded-xl px-4 py-3 font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius);
+    padding: 0.75rem 1rem;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    min-height: 44px;
+    touch-action: manipulation;
   }
 
-  .btn-primary {
-    @apply bg-primary text-primary-foreground hover:bg-primary/90 active:bg-primary/90;
+  .btn:hover {
+    background-color: hsl(var(--primary) / 0.9);
+  }
+
+  .btn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px hsl(var(--ring));
+  }
+
+  .btn:disabled {
+    opacity: 0.5;
+    pointer-events: none;
   }
 
   .input {
-    @apply w-full rounded-xl border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+    width: 100%;
+    border-radius: var(--radius);
+    border: 1px solid hsl(var(--input));
+    background-color: hsl(var(--background));
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    color: hsl(var(--foreground));
+  }
+
+  .input::placeholder {
+    color: hsl(var(--muted-foreground));
+  }
+
+  .input:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px hsl(var(--ring));
+  }
+
+  .input:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
   }
 }
 
