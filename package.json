@@ -11,6 +11,7 @@
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:run": "vitest run",
+    "test:ci": "vitest run --coverage",
     "format": "prettier --write .",
     "prepare": "husky",
     "cap:build": "npm run build && npx cap copy",

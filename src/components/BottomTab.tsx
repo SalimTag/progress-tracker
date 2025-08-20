@@ -1,17 +1,13 @@
-import React from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
-import { 
-  HomeIcon, 
-  ClipboardDocumentListIcon, 
-  Squares2X2Icon 
-} from '@heroicons/react/24/outline';
+import React from "react";
+import { NavLink, useLocation } from "react-router-dom";
+import { HomeIcon, ClipboardDocumentListIcon, Squares2X2Icon } from "@heroicons/react/24/outline";
 import {
   HomeIcon as HomeIconSolid,
   ClipboardDocumentListIcon as ClipboardIconSolid,
-  Squares2X2Icon as GridIconSolid
-} from '@heroicons/react/24/solid';
-import { useNativeFeatures, ImpactStyle } from '../hooks/useNativeFeatures';
-import { motion } from 'framer-motion';
+  Squares2X2Icon as GridIconSolid,
+} from "@heroicons/react/24/solid";
+import { useNativeFeatures, ImpactStyle } from "../hooks/useNativeFeatures";
+import { motion } from "framer-motion";
 
 interface NavItem {
   path: string;
@@ -22,20 +18,20 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   {
-    path: '/',
-    label: 'Dashboard',
+    path: "/",
+    label: "Dashboard",
     icon: HomeIcon,
     iconSolid: HomeIconSolid,
   },
   {
-    path: '/activities',
-    label: 'Activities',
+    path: "/activities",
+    label: "Activities",
     icon: ClipboardDocumentListIcon,
     iconSolid: ClipboardIconSolid,
   },
   {
-    path: '/organization',
-    label: 'Organize',
+    path: "/organization",
+    label: "Organize",
     icon: Squares2X2Icon,
     iconSolid: GridIconSolid,
   },
@@ -50,27 +46,29 @@ export default function BottomTab() {
   };
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-gray-200/80 dark:border-gray-800/80 bg-white/95 dark:bg-slate-900/95 backdrop-blur">
-      <div className="container-app grid grid-cols-3">
-        {navItems.map((item) => {
+    <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-gray-200/80 dark:border-gray-800/80 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md safe-area-bottom">
+      <div className="grid grid-cols-3 px-4">
+        {navItems.map(item => {
           const isActive = location.pathname === item.path;
           const Icon = isActive ? item.iconSolid : item.icon;
-          
+
           return (
             <motion.div key={item.path} className="text-center">
               <NavLink
                 to={item.path}
                 onClick={handleNavigation}
-                className={`flex flex-col items-center py-2 transition-colors duration-200 min-h-[44px] ${
+                className={`flex flex-col items-center py-3 px-2 transition-all duration-200 min-h-[56px] rounded-lg active:scale-95 ${
                   isActive
-                    ? 'text-primary'
-                    : 'text-muted-foreground hover:text-foreground'
+                    ? "text-primary bg-primary/10"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                 }`}
               >
                 <Icon className="h-6 w-6" />
-                <span className={`text-[11px] font-medium ${
-                  isActive ? 'text-primary' : 'text-muted-foreground'
-                }`}>
+                <span
+                  className={`text-[11px] font-medium ${
+                    isActive ? "text-primary" : "text-muted-foreground"
+                  }`}
+                >
                   {item.label}
                 </span>
               </NavLink>
@@ -78,7 +76,7 @@ export default function BottomTab() {
           );
         })}
       </div>
-      <div style={{paddingBottom: "env(safe-area-inset-bottom)"}}/>
+      <div style={{ paddingBottom: "env(safe-area-inset-bottom)" }} />
     </nav>
   );
 }
