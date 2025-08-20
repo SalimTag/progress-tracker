@@ -5,7 +5,7 @@
   :root {
     /* Color scheme */
     color-scheme: light dark;
-    
+
     /* shadcn/ui CSS variables */
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
@@ -27,7 +27,7 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 191 91% 36.5%;
     --radius: 0.75rem;
-    
+
     /* Brand colors (cyan-based for progress tracking) */
     --brand-50: 236 254 255;
     --brand-100: 207 250 254;
@@ -70,17 +70,32 @@
     padding: 0;
     box-sizing: border-box;
   }
-  
+
   html {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      Oxygen,
+      Ubuntu,
+      Cantarell,
+      "Open Sans",
+      "Helvetica Neue",
+      sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 16px; /* Prevent iOS zoom on inputs */
   }
-  
+
   body {
     @apply bg-background text-foreground;
-    background-image: radial-gradient(1000px 300px at 0 -100px, hsl(var(--brand-500) / 0.08), transparent);
+    background-image: radial-gradient(
+      1000px 300px at 0 -100px,
+      hsl(var(--brand-500) / 0.08),
+      transparent
+    );
     padding-bottom: env(safe-area-inset-bottom);
   }
 }
@@ -90,15 +105,15 @@
   .safe-area-top {
     padding-top: max(env(safe-area-inset-top), 0px);
   }
-  
+
   .safe-area-bottom {
     padding-bottom: max(env(safe-area-inset-bottom), 0.5rem);
   }
-  
+
   .safe-area-left {
     padding-left: max(env(safe-area-inset-left), 1rem);
   }
-  
+
   .safe-area-right {
     padding-right: max(env(safe-area-inset-right), 1rem);
   }
@@ -161,7 +176,7 @@
 }
 
 .touch-target::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 50%;
@@ -172,13 +187,17 @@
 }
 
 /* Mobile-friendly input styles */
-input, textarea, button {
+input,
+textarea,
+button {
   font-size: 16px; /* Prevent iOS zoom */
   min-height: 44px; /* Accessible tap target */
 }
 
 /* Focus styles for accessibility */
-input:focus, textarea:focus, button:focus {
+input:focus,
+textarea:focus,
+button:focus {
   outline: 2px solid rgb(14 165 233);
   outline-offset: 2px;
 }
@@ -189,9 +208,11 @@ input:focus, textarea:focus, button:focus {
   body {
     user-select: none; /* Prevent text selection in app mode */
   }
-  
+
   /* Allow text selection in content areas */
-  main, article, .content {
+  main,
+  article,
+  .content {
     user-select: text;
   }
 }
@@ -206,15 +227,15 @@ body {
   .container-app {
     @apply max-w-screen-sm mx-auto px-4;
   }
-  
+
   .btn {
     @apply inline-flex items-center justify-center rounded-xl px-4 py-3 font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none;
   }
-  
+
   .btn-primary {
     @apply bg-primary text-primary-foreground hover:bg-primary/90 active:bg-primary/90;
   }
-  
+
   .input {
     @apply w-full rounded-xl border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
   }
@@ -237,13 +258,39 @@ body {
 }
 
 @keyframes loading {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
   .skeleton {
     background: linear-gradient(90deg, #2a2a2a 25%, #3a3a3a 50%, #2a2a2a 75%);
     background-size: 200% 100%;
+  }
+}
+
+/* Accessibility: Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Keep essential animations but make them instant */
+  .skeleton {
+    animation: none;
+    background: #f0f0f0;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .skeleton {
+      background: #2a2a2a;
+    }
   }
 }
