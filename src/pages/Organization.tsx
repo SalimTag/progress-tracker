@@ -4,9 +4,24 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Trash2, ArrowRight, ArrowLeft } from "lucide-react";
 import { Button } from "../components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card";
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "../components/ui/dialog";
-import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "../components/ui/sheet";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "../components/ui/dialog";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "../components/ui/sheet";
 import { useToast } from "../hooks/useToast";
+import PageShell from "../components/PageShell";
 
 type Priority = "Low" | "Medium" | "High";
 type Status = "todo" | "doing" | "done";
@@ -72,12 +87,12 @@ export default function Organization() {
     setTitle("");
     setDescription("");
     setIsAddSheetOpen(false);
-    
+
     // Haptic feedback for mobile
-    if ('vibrate' in navigator) {
+    if ("vibrate" in navigator) {
       navigator.vibrate(50);
     }
-    
+
     toast({
       title: "Task created",
       description: `"${trimmedTitle}" has been added to your board.`,
@@ -87,14 +102,14 @@ export default function Organization() {
   const moveTask = (id: string, status: Status) => {
     const task = tasks.find(t => t.id === id);
     if (!task) return;
-    
+
     setTasks(prev => prev.map(t => (t.id === id ? { ...t, status } : t)));
-    
+
     // Haptic feedback for mobile
-    if ('vibrate' in navigator) {
+    if ("vibrate" in navigator) {
       navigator.vibrate(30);
     }
-    
+
     const statusLabels = { todo: "To Do", doing: "In Progress", done: "Done" };
     toast({
       title: "Task moved",
@@ -105,15 +120,15 @@ export default function Organization() {
   const deleteTask = (id: string) => {
     const task = tasks.find(t => t.id === id);
     if (!task) return;
-    
+
     setTasks(prev => prev.filter(t => t.id !== id));
     setDeleteDialog({ open: false, taskId: null });
-    
+
     // Haptic feedback for mobile
-    if ('vibrate' in navigator) {
+    if ("vibrate" in navigator) {
       navigator.vibrate([50, 50, 50]);
     }
-    
+
     toast({
       title: "Task deleted",
       description: `"${task.title}" has been removed from your board.`,
@@ -149,7 +164,7 @@ export default function Organization() {
             </span>
           </div>
         </CardHeader>
-        
+
         <CardContent className="space-y-3">
           <AnimatePresence>
             {columnTasks.map((task, index) => (
@@ -231,7 +246,7 @@ export default function Organization() {
               </motion.div>
             ))}
           </AnimatePresence>
-          
+
           {columnTasks.length === 0 && (
             <div className="text-center py-8 text-muted-foreground">
               <div className="text-2xl mb-2">📋</div>
@@ -244,35 +259,32 @@ export default function Organization() {
   };
 
   return (
-    <>
-      <section className="space-y-6 pb-20">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-2xl">Organization</CardTitle>
-              <CardDescription>
-                Manage your tasks with a simple Kanban board. Stay organized and track your progress.
-              </CardDescription>
-            </CardHeader>
-          </Card>
-        </motion.div>
+    <PageShell className="space-y-6">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-2xl">Organization</CardTitle>
+            <CardDescription>
+              Manage your tasks with a simple Kanban board. Stay organized and track your progress.
+            </CardDescription>
+          </CardHeader>
+        </Card>
+      </motion.div>
 
-        <motion.div
-          className="grid lg:grid-cols-3 gap-6"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
-          <Column label="To Do" status="todo" color="text-muted-foreground" />
-          <Column label="In Progress" status="doing" color="text-blue-600 dark:text-blue-400" />
-          <Column label="Done" status="done" color="text-green-600 dark:text-green-400" />
-        </motion.div>
-      </section>
-
+      <motion.div
+        className="grid lg:grid-cols-3 gap-6"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+      >
+        <Column label="To Do" status="todo" color="text-muted-foreground" />
+        <Column label="In Progress" status="doing" color="text-blue-600 dark:text-blue-400" />
+        <Column label="Done" status="done" color="text-green-600 dark:text-green-400" />
+      </motion.div>
       {/* Floating Action Button */}
       <Sheet open={isAddSheetOpen} onOpenChange={setIsAddSheetOpen}>
         <SheetTrigger asChild>
@@ -280,7 +292,7 @@ export default function Organization() {
             whileTap={{ scale: 0.95 }}
             whileHover={{ scale: 1.05 }}
             className="fixed bottom-20 right-4 z-50 rounded-full bg-primary text-primary-foreground p-4 shadow-lg min-h-[56px] min-w-[56px] flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 transition-colors hover:bg-primary/90"
-            style={{marginBottom: "env(safe-area-inset-bottom)"}}
+            style={{ marginBottom: "env(safe-area-inset-bottom)" }}
             aria-label="Add new task"
           >
             <Plus className="h-6 w-6" />
@@ -293,11 +305,14 @@ export default function Organization() {
               Create a new task for your Kanban board. Organize your work and stay productive.
             </SheetDescription>
           </SheetHeader>
-          
+
           <form onSubmit={addTask} className="space-y-6 mt-6">
             <div className="space-y-4">
               <div>
-                <label htmlFor="task-title" className="text-sm font-medium text-foreground block mb-2">
+                <label
+                  htmlFor="task-title"
+                  className="text-sm font-medium text-foreground block mb-2"
+                >
                   Task Title *
                 </label>
                 <input
@@ -311,7 +326,10 @@ export default function Organization() {
               </div>
 
               <div>
-                <label htmlFor="task-description" className="text-sm font-medium text-foreground block mb-2">
+                <label
+                  htmlFor="task-description"
+                  className="text-sm font-medium text-foreground block mb-2"
+                >
                   Description (Optional)
                 </label>
                 <textarea
@@ -324,7 +342,10 @@ export default function Organization() {
               </div>
 
               <div>
-                <label htmlFor="task-priority" className="text-sm font-medium text-foreground block mb-2">
+                <label
+                  htmlFor="task-priority"
+                  className="text-sm font-medium text-foreground block mb-2"
+                >
                   Priority
                 </label>
                 <select
@@ -341,18 +362,10 @@ export default function Organization() {
             </div>
 
             <div className="flex gap-3">
-              <Button
-                type="submit"
-                className="flex-1"
-                disabled={!title.trim()}
-              >
+              <Button type="submit" className="flex-1" disabled={!title.trim()}>
                 Add Task
               </Button>
-              <Button
-                type="button"
-                variant="outline"
-                onClick={() => setIsAddSheetOpen(false)}
-              >
+              <Button type="button" variant="outline" onClick={() => setIsAddSheetOpen(false)}>
                 Cancel
               </Button>
             </div>
@@ -365,7 +378,10 @@ export default function Organization() {
       </Sheet>
 
       {/* Delete Confirmation Dialog */}
-      <Dialog open={deleteDialog.open} onOpenChange={(open: boolean) => !open && setDeleteDialog({ open: false, taskId: null })}>
+      <Dialog
+        open={deleteDialog.open}
+        onOpenChange={(open: boolean) => !open && setDeleteDialog({ open: false, taskId: null })}
+      >
         <DialogContent>
           <DialogHeader>
             <DialogTitle>Delete Task</DialogTitle>
@@ -389,6 +405,6 @@ export default function Organization() {
           </DialogFooter>
         </DialogContent>
       </Dialog>
-    </>
+    </PageShell>
   );
 }
