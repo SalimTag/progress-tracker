@@ -3,7 +3,6 @@ A mobile-first productivity app** built with **React, TypeScript, Vite**, and op
 The app helps users track activities, manage progress, and stay organized with a seamless native-like experience.
 
 ## 🚀 Tech Stack
-
  ⚛️ React 18 + TypeScript** – Component-driven UI
 * ⚡ Vite** – Lightning-fast build tooling
  🎨 Tailwind CSS v4** – Utility-first styling
@@ -15,10 +14,8 @@ The app helps users track activities, manage progress, and stay organized with a
 * ✅ Jest + React Testing Library** – Unit & integration testing
 * 🧹 ESLint + Prettier** – Code quality and formatting
 * 🔄 GitHub Actions** – CI/CD for Web + Mobile builds
-
 ---
 ## ✨ Features
-
 * 📊 **Dashboard** with activity overview
 * 📝 **Activities Page** with FAB + bottom sheet to add tasks
 * 🏢 **Organization Page** for structured progress tracking
@@ -29,9 +26,7 @@ The app helps users track activities, manage progress, and stay organized with a
 * 🎭 **Framer Motion** animations for smooth navigation
 
 ---
-
 ## 📦 Installation
-
 ```bash
 # Clone the repo
 git clone https://github.com/SalimTag/progress-tracker.git
@@ -135,30 +130,18 @@ progress-tracker/
 ├── vite.config.ts          # Vite setup
 └── package.json
 ```
-
 ## 📱 PWA Features
-
 * Installable with app icons and splash screens
 * Works offline with service worker caching
 * Safe area insets handled for iOS
 * Optimized viewport units (`svh`) for mobile stability
 
----
-## 📸 Screenshots
-
-*(add screenshots later – Dashboard, Activities, Organization, Dark mode, etc.)*
-
----
-
 ## 📌 Roadmap
-
 * [ ] Polish UI (dark mode, spacing, typography)
 * [ ] Add user authentication (Supabase / Firebase)
 * [ ] Add activity categories & filters
 * [ ] Add push notifications for reminders
 * [ ] Store sync (cloud + offline-first)
-
 ---
 ## 📝 License
-
 MIT © 2025 Salim Tagemouati
