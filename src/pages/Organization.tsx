@@ -317,7 +317,7 @@ export default function Organization() {
                 </label>
                 <input
                   id="task-title"
-                  className="w-full rounded-lg border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                  className="w-full rounded-lg border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--ring))] focus-visible:ring-offset-2"
                   placeholder="e.g., Review German notes"
                   value={title}
                   onChange={e => setTitle(e.target.value)}
@@ -334,7 +334,7 @@ export default function Organization() {
                 </label>
                 <textarea
                   id="task-description"
-                  className="w-full rounded-lg border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 min-h-[80px] resize-none"
+                  className="w-full rounded-lg border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--ring))] focus-visible:ring-offset-2 min-h-[80px] resize-none"
                   placeholder="Additional details about the task..."
                   value={description}
                   onChange={e => setDescription(e.target.value)}
@@ -350,7 +350,7 @@ export default function Organization() {
                 </label>
                 <select
                   id="task-priority"
-                  className="w-full rounded-lg border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                  className="w-full rounded-lg border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--ring))] focus-visible:ring-offset-2"
                   value={priority}
                   onChange={e => setPriority(e.target.value as Priority)}
                 >

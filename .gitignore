@@ -22,3 +22,23 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Backup files
+*.backup
+*.old
+*.new
+backup-*/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Capacitor
+android/app/build/
+ios/App/build/
