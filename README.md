@@ -1,32 +1,39 @@
 Progress Tracker
-A mobile-first productivity app** built with **React, TypeScript, Vite**, and optimized for both **Web + iOS + Android** using **PWA + Capacitor**.
+A mobile-first productivity app** built with **React, TypeScript, Vite**, and optimized for both **Web + iOS + Android** using **PWA + Capacitor\*\*.
 The app helps users track activities, manage progress, and stay organized with a seamless native-like experience.
 
 ## 🚀 Tech Stack
- ⚛️ React 18 + TypeScript** – Component-driven UI
-* ⚡ Vite** – Lightning-fast build tooling
- 🎨 Tailwind CSS v4** – Utility-first styling
- 🧩 shadcn/ui** – Accessible headless UI components
- 📦 Zustand** – Lightweight state management
-* 📱 Capacitor** – Native iOS & Android builds from the same codebase
-* 🌙 Dark mode** – System preference aware
-* 🔔 Capacitor Plugins** – Haptics, Notifications, Storage, StatusBar
-* ✅ Jest + React Testing Library** – Unit & integration testing
-* 🧹 ESLint + Prettier** – Code quality and formatting
-* 🔄 GitHub Actions** – CI/CD for Web + Mobile builds
----
-## ✨ Features
-* 📊 **Dashboard** with activity overview
-* 📝 **Activities Page** with FAB + bottom sheet to add tasks
-* 🏢 **Organization Page** for structured progress tracking
-* 🧩 **Reusable Components** via `shadcn/ui` (Cards, Buttons, Dialogs, Sheets, Toasts, Skeletons)
-* 📲 **Native-like Interactions** – haptics, pull-to-refresh, safe areas
-* 🔒 **Offline-ready PWA** with caching strategies
-* 📦 **Installable** on Desktop, iOS, and Android
-* 🎭 **Framer Motion** animations for smooth navigation
+
+⚛️ React 18 + TypeScript\*\* – Component-driven UI
+
+- ⚡ Vite** – Lightning-fast build tooling
+  🎨 Tailwind CSS v4** – Utility-first styling
+  🧩 shadcn/ui** – Accessible headless UI components
+  📦 Zustand** – Lightweight state management
+- 📱 Capacitor\*\* – Native iOS & Android builds from the same codebase
+- 🌙 Dark mode\*\* – System preference aware
+- 🔔 Capacitor Plugins\*\* – Haptics, Notifications, Storage, StatusBar
+- ✅ Jest + React Testing Library\*\* – Unit & integration testing
+- 🧹 ESLint + Prettier\*\* – Code quality and formatting
+- 🔄 GitHub Actions\*\* – CI/CD for Web + Mobile builds
 
 ---
+
+## ✨ Features
+
+- 📊 **Dashboard** with activity overview
+- 📝 **Activities Page** with FAB + bottom sheet to add tasks
+- 🏢 **Organization Page** for structured progress tracking
+- 🧩 **Reusable Components** via `shadcn/ui` (Cards, Buttons, Dialogs, Sheets, Toasts, Skeletons)
+- 📲 **Native-like Interactions** – haptics, pull-to-refresh, safe areas
+- 🔒 **Offline-ready PWA** with caching strategies
+- 📦 **Installable** on Desktop, iOS, and Android
+- 🎭 **Framer Motion** animations for smooth navigation
+
+---
+
 ## 📦 Installation
+
 ```bash
 # Clone the repo
 git clone https://github.com/SalimTag/progress-tracker.git
@@ -35,7 +42,9 @@ cd progress-tracker
 # Install dependencies
 npm install
 ```
+
 ---
+
 ## 🛠️ Development
 
 ```bash
@@ -54,13 +63,16 @@ npm run test
 ```
 
 ---
+
 ## 🌐 Web Build & Preview
 
 ```bash
 npm run build
 npm run preview
 ```
+
 ---
+
 ## 📱 Mobile (iOS & Android)
 
 ```bash
@@ -73,12 +85,16 @@ npm run cap:run:ios
 # Run in Android emulator
 npm run cap:run:android
 ```
+
 You can also open the native projects manually:
+
 ```bash
 npm run cap:open:ios
 npm run cap:open:android
 ```
+
 ---
+
 ## 🧰 Useful Scripts
 
 ```bash
@@ -90,28 +106,29 @@ npm run mobile:build:android # Build Android release
 ```
 
 ---
+
 ## 🧪 Testing
 
-```bash
-npm run test       # Run all tests
-npm run test:watch # Watch mode
-npm run test:ci    # CI-friendly tests
-```
+- Type-check: `npm run type-check`
+- Run tests (watch): `npm run test`
+- CI run: `npm run test:ci`
 
-Includes mobile-specific helpers in `src/utils/testHelpers.ts` for simulating touch, viewport, and Capacitor features.
+Vitest runs in a jsdom browser-like environment.
+Capacitor and browser-only APIs are safely mocked in `src/setupTests.ts`.
 
 ---
 
 ## ⚙️ CI/CD
 
-* **GitHub Actions** pipeline for:
-
-  * ✅ Linting & Testing
-  * 🌐 Web build → deploy to Vercel
-  * 📱 Mobile build → iOS Archive + Android APK artifacts
+- **GitHub Actions** pipeline for:
+  - ✅ Linting & Testing
+  - 🌐 Web build → deploy to Vercel
+  - 📱 Mobile build → iOS Archive + Android APK artifacts
 
 ---
+
 ## 📖 Project Structure
+
 ```
 progress-tracker/
 ├── android/                # Android native project (Capacitor)
@@ -130,18 +147,24 @@ progress-tracker/
 ├── vite.config.ts          # Vite setup
 └── package.json
 ```
+
 ## 📱 PWA Features
-* Installable with app icons and splash screens
-* Works offline with service worker caching
-* Safe area insets handled for iOS
-* Optimized viewport units (`svh`) for mobile stability
+
+- Installable with app icons and splash screens
+- Works offline with service worker caching
+- Safe area insets handled for iOS
+- Optimized viewport units (`svh`) for mobile stability
 
 ## 📌 Roadmap
-* [ ] Polish UI (dark mode, spacing, typography)
-* [ ] Add user authentication (Supabase / Firebase)
-* [ ] Add activity categories & filters
-* [ ] Add push notifications for reminders
-* [ ] Store sync (cloud + offline-first)
+
+- [ ] Polish UI (dark mode, spacing, typography)
+- [ ] Add user authentication (Supabase / Firebase)
+- [ ] Add activity categories & filters
+- [ ] Add push notifications for reminders
+- [ ] Store sync (cloud + offline-first)
+
 ---
+
 ## 📝 License
+
 MIT © 2025 Salim Tagemouati

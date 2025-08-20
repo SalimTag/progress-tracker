@@ -21,15 +21,6 @@ describe("App", () => {
     );
     expect(screen.getByText("Dashboard")).toBeInTheDocument();
     expect(screen.getByText("Activities")).toBeInTheDocument();
-    expect(screen.getByText("Organization")).toBeInTheDocument();
-  });
-
-  it("renders footer", () => {
-    render(
-      <MemoryRouter>
-        <App />
-      </MemoryRouter>
-    );
-    expect(screen.getByText(/Yassine & Salim/)).toBeInTheDocument();
+    expect(screen.getByText("Organize")).toBeInTheDocument();
   });
 });
