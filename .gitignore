@@ -29,6 +29,10 @@ dist-ssr
 *.new
 backup-*/
 
+# TypeScript build info
+*.tsbuildinfo
+node_modules/.tmp/
+
 # Python
 .venv/
 __pycache__/
@@ -42,3 +46,8 @@ __pycache__/
 # Capacitor
 android/app/build/
 ios/App/build/
+
+# Temporary files
+temp/
+tmp/
+*.tmp
