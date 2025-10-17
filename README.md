@@ -1,34 +1,33 @@
-Progress Tracker
-A mobile-first productivity app** built with **React, TypeScript, Vite**, and optimized for both **Web + iOS + Android** using **PWA + Capacitor\*\*.
-The app helps users track activities, manage progress, and stay organized with a seamless native-like experience.
+# Progress Tracker
+
+A mobile-first productivity app built with React, TypeScript, and Vite, optimized for Web, iOS, and Android via PWA + Capacitor. Track activities, manage progress, and stay organized with a fast, native-like experience.
 
 ## 🚀 Tech Stack
 
-⚛️ React 18 + TypeScript\*\* – Component-driven UI
-
-- ⚡ Vite** – Lightning-fast build tooling
-  🎨 Tailwind CSS v4** – Utility-first styling
-  🧩 shadcn/ui** – Accessible headless UI components
-  📦 Zustand** – Lightweight state management
-- 📱 Capacitor\*\* – Native iOS & Android builds from the same codebase
-- 🌙 Dark mode\*\* – System preference aware
-- 🔔 Capacitor Plugins\*\* – Haptics, Notifications, Storage, StatusBar
-- ✅ Jest + React Testing Library\*\* – Unit & integration testing
-- 🧹 ESLint + Prettier\*\* – Code quality and formatting
-- 🔄 GitHub Actions\*\* – CI/CD for Web + Mobile builds
+- React 18 + TypeScript
+- Vite
+- Tailwind CSS v4
+- shadcn/ui
+- Zustand
+- Capacitor (iOS & Android)
+- Dark mode
+- Capacitor Plugins: Haptics, Local Notifications, Storage, StatusBar
+- Vitest + React Testing Library
+- ESLint + Prettier
+- GitHub Actions
 
 ---
 
 ## ✨ Features
 
-- 📊 **Dashboard** with activity overview
-- 📝 **Activities Page** with FAB + bottom sheet to add tasks
-- 🏢 **Organization Page** for structured progress tracking
-- 🧩 **Reusable Components** via `shadcn/ui` (Cards, Buttons, Dialogs, Sheets, Toasts, Skeletons)
-- 📲 **Native-like Interactions** – haptics, pull-to-refresh, safe areas
-- 🔒 **Offline-ready PWA** with caching strategies
-- 📦 **Installable** on Desktop, iOS, and Android
-- 🎭 **Framer Motion** animations for smooth navigation
+- Dashboard with activity overview
+- Activities page with FAB + bottom sheet to add tasks
+- Organization page for structured progress tracking
+- Reusable components (`shadcn/ui`): Cards, Buttons, Dialogs, Sheets, Toasts, Skeletons
+- Native-like interactions: haptics, pull-to-refresh, safe areas
+- Offline-ready PWA with caching strategies
+- Installable on Desktop, iOS, and Android
+- Smooth navigation with Framer Motion
 
 ---
 
@@ -120,10 +119,9 @@ Capacitor and browser-only APIs are safely mocked in `src/setupTests.ts`.
 
 ## ⚙️ CI/CD
 
-- **GitHub Actions** pipeline for:
-  - ✅ Linting & Testing
-  - 🌐 Web build → deploy to Vercel
-  - 📱 Mobile build → iOS Archive + Android APK artifacts
+- Linting & testing
+- Web build → deploy to Vercel
+- Mobile build → iOS Archive + Android APK artifacts
 
 ---
 
@@ -160,7 +158,6 @@ progress-tracker/
 - [ ] Polish UI (dark mode, spacing, typography)
 - [ ] Add user authentication (Supabase / Firebase)
 - [ ] Add activity categories & filters
-- [ ] Add push notifications for reminders
 - [ ] Store sync (cloud + offline-first)
 
 ---

@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import BottomTab from "./components/BottomTab";
 import { Toaster } from "./components/Toaster";
 import ThemeToggle from "./components/ThemeToggle";
+import ReminderManager from "./components/ReminderManager";
 
 // Lazy load routes for better performance on mobile
 const Dashboard = lazy(() => import("./pages/Dashboard"));
@@ -56,6 +57,7 @@ function App() {
         </motion.div>
       </AnimatePresence>
 
+      <ReminderManager />
       <BottomTab />
       <Toaster />
     </div>

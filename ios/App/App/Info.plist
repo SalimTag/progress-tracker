@@ -45,5 +45,9 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
+
+	<!-- Notifications permission description (iOS) -->
+	<key>NSUserNotificationUsageDescription</key>
+	<string>We use notifications to remind you to hydrate and read. You can adjust reminders anytime in Settings.</string>
 </dict>
 </plist>

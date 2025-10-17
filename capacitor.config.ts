@@ -16,6 +16,11 @@ const config: CapacitorConfig = {
       resize: 'body',
       style: 'dark',
       resizeOnFullScreen: true
+    },
+    LocalNotifications: {
+      // Android-specific: name of a drawable resource (res/drawable/ic_stat_notification.xml)
+      smallIcon: 'ic_stat_notification',
+      iconColor: '#0EA5E9'
     }
   }
 };

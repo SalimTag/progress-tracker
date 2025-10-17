@@ -11,6 +11,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
+  DialogClose,
 } from "../components/ui/dialog";
 import {
   Sheet,
@@ -165,10 +166,14 @@ export default function Activities() {
                     </DialogDescription>
                   </DialogHeader>
                   <DialogFooter>
-                    <Button variant="outline">Cancel</Button>
-                    <Button variant="destructive" onClick={() => handleDelete(it.id, it.name)}>
-                      Delete
-                    </Button>
+                    <DialogClose asChild>
+                      <Button variant="outline">Cancel</Button>
+                    </DialogClose>
+                    <DialogClose asChild>
+                      <Button variant="destructive" onClick={() => handleDelete(it.id, it.name)}>
+                        Delete
+                      </Button>
+                    </DialogClose>
                   </DialogFooter>
                 </DialogContent>
               </Dialog>
